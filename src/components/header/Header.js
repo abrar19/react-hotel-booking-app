@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import './header.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBed, faCalendarDays, faCar, faPerson, faPlane, faTableTennis, faTaxi } from '@fortawesome/free-solid-svg-icons'
@@ -6,7 +7,9 @@ import { DateRange } from 'react-date-range';
 import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 
-const Header = () => {
+const Header = ({type}) => {
+
+    const [destination, setDestination] = useState('');
 
     const [openDate, setOpenDate] = useState(false);
     const [date, setDate] = useState([
@@ -32,9 +35,15 @@ const Header = () => {
             }
         });
     }
+
+    const navigate = useNavigate();
+    const handleSearch = () => {
+        navigate('/hotels', {state: {destination, date, options}});
+    }
+
     return (
         <div className='header'>
-            <div className='headerContainer'>
+            <div className={type === 'list' ? 'headerContainer listmode' : 'headerContainer'}>
                 <div className='headerList'>
                     <div className='headerListItem active'>
                         <FontAwesomeIcon icon={faBed} />
@@ -57,7 +66,7 @@ const Header = () => {
                         <span>Airport Taxis</span>
                     </div>   
                 </div>
-                <h1 className='headerTitle'>A Lifetime of Discounts? It's Genius!</h1>
+                { type !== 'list' && <><h1 className='headerTitle'>A Lifetime of Discounts? It's Genius!</h1>
                 <p className='headerDesc'>
                     Explore the world with Booking.com. Big savings on homes, hotels, flights, car rentals, taxis, and attractions – build your perfect trip on any budget.    
                 </p>
@@ -69,6 +78,7 @@ const Header = () => {
                             type='text' 
                             placeholder='Where are you going?' 
                             className='headerSearchInput'
+                            onChange={e=>setDestination(e.target.value)}
                         />
                     </div>
                     <div className='headerSearchItem'>
@@ -113,9 +123,9 @@ const Header = () => {
                         </div>}
                     </div>
                     <div className='headerSearchItem'>
-                        <button className='headerBtn'>Search</button>
+                        <button className='headerBtn' onClick={handleSearch}>Search</button>
                     </div>
-                </div>
+                </div></>}
             </div>
         </div>
     );
