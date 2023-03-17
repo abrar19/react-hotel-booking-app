@@ -9,10 +9,10 @@ import './list.css'
 const List = () => {
 
     const location = useLocation();
-    const [destination, setDestination] = useState(location.state.destination);
+    let destination = location.state.destination;
     const [openDate, setOpenDate] = useState(false);
     const [date, setDate] = useState(location.state.date);
-    const [options, setOptions] = useState(location.state.options);
+    let options = location.state.options;
 
     return (
         <div>
