@@ -23,6 +23,10 @@
     color: #0071c2;
     margin: 0;
 }
+.siTitle>a{
+    text-decoration: none;
+    color: #0071c2;
+}
 .siDistance{
     font-size: 12px;
 }

@@ -7,7 +7,7 @@ const SearchItem = () => {
         <div className='searchItem'>
             <img src={hotel1} alt='' className='siImg'/>
             <div className='siDesc'>
-                <h1 className='siTitle'>Tower Street Apartments</h1>
+                <h1 className='siTitle'><a href='/hotels/abc'>Tower Street Apartments</a></h1>
                 <span className='siDistance'>500m from center</span>
                 <span className='siTaxiOp'>Free airport taxi</span>
                 <span className='siSubtitle'>Studio Apartment with Air Conditioning</span>
