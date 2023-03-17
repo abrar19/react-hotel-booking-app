@@ -1,5 +1,5 @@
 
-# LookUp.com
+# LookUp[dot]com
 
 This is a website UI built with React that helps us to find and reserve hotels/B&Bs around the globe for work and travel.
 
