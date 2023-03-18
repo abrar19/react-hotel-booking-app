@@ -46,7 +46,7 @@ const Footer = () => {
                     <li className='fListItem'>Sustainability</li>
                 </ul>
             </div>
-            <div className='fText'>&copy; LookUp.com by developed by <span className='color'>Abrar Haque</span> with <span className='color'>React.js</span></div>
+            <div className='fText'>&copy; LookUp.com - developed by <span className='color'>Abrar Haque</span> with <span className='color'>React.js</span></div>
         </div>
     );
 }
